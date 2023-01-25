@@ -12,8 +12,8 @@ namespace XStore.Domain.Entities
     {
         protected Client() { }
         public Client(string name,
-            string email,
-            string cpf,
+            Email email,
+            Cpf cpf,
             bool active)
         {
             Name = name;
@@ -23,8 +23,8 @@ namespace XStore.Domain.Entities
         }
 
         public string Name { get; private set; }
-        public string Email { get; private set; }
-        public string Cpf { get; private set; }
+        public Email Email { get; private set; }
+        public Cpf Cpf { get; private set; }
         public bool Active { get; private set; }
         public Guid AddressId { get; private set; }
         public Address Address { get; private set; }
@@ -34,5 +34,11 @@ namespace XStore.Domain.Entities
             Address = address;
             AddressId = address.Id;
         }
+
+        public void ChangeEmail(string email)
+        {
+            Email = new Email(email);
+        }
+
     }
 }
