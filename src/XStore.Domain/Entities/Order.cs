@@ -94,7 +94,15 @@ namespace XStore.Domain.Entities
                 }
             }
 
-            TotalValue = value < 0 ? 0 : value;
+            if(value < 0)
+            {
+                TotalValue = 0;
+            }
+            else
+            {
+                TotalValue = value;
+            }
+
             Discount = discount;
         }
     }

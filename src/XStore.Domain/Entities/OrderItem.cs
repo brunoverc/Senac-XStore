@@ -6,27 +6,27 @@ namespace XStore.Domain.Entities
 	{
         public Guid OrderId { get; private set; }
         public Guid ProductId { get; private set; }
-        public string ProdutoName { get; private set; }
+        public string ProductName { get; private set; }
         public int Amount { get; private set; }
         public decimal UnitValue { get; private set; }
-        public string ProductImage { get; set; }
+        public string ProductImage { get; private set; }
 
         // EF Rel.
-        public Order Order { get; set; }
+        public Order Order { get; private set; }
 
         // EF ctor
         protected OrderItem() { }
 
         public OrderItem(Guid orderId,
             Guid productId,
-            string produtoName,
+            string productName,
             int amount,
             decimal unitValue,
             string productImage)
         {
             OrderId = orderId;
             ProductId = productId;
-            ProdutoName = produtoName;
+            ProductName = productName;
             Amount = amount;
             UnitValue = unitValue;
             ProductImage = productImage;

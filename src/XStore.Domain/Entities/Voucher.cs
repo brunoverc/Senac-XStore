@@ -5,6 +5,7 @@ namespace XStore.Domain.Entities
 {
     public class Voucher : Entity
 	{
+        protected Voucher() { }
         public string Code { get; private set; }
         public decimal? Percentage { get; private set; }
         public decimal? DiscountValue { get; private set; }

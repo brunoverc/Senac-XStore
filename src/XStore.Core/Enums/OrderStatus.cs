@@ -1,7 +1,7 @@
 ﻿namespace XStore.Core.Enums
 {
     public enum OrderStatus
-	{
+    {
         Autorizado = 1,
         Pago = 2,
         Recusado = 3,
@@ -9,4 +9,3 @@
         Cancelado = 5
     }
 }
-
