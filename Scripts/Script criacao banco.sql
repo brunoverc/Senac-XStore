@@ -1,0 +1,95 @@
+CREATE TABLE Address(
+	Id UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	Street NVARCHAR(200) NOT NULL,
+	Number NVARCHAR(10),
+	Complement NVARCHAR(200),
+	Neighborhood NVARCHAR(50),
+	PostalCode NVARCHAR(9),
+	City NVARCHAR(50),
+	[State] NVARCHAR(15),
+	CreatedAt DATETIMEOFFSET,
+	UpdatedAt DATETIMEOFFSET,
+	Deleted BIT
+);
+
+CREATE TABLE Product(
+	Id UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(100),
+	[Description] NVARCHAR(240),
+	Active BIT,
+	Price DECIMAL(10,2),
+	DateRegister DATETIME,
+	[Image] NVARCHAR(100),
+	StockQuantity INT,
+	CreatedAt DATETIMEOFFSET,
+	UpdatedAt DATETIMEOFFSET,
+	Deleted Bit
+);
+
+CREATE TABLE Client(
+	Id UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[Name] NVARCHAR(100),
+	Email NVARCHAR(100),
+	Cpf NVARCHAR(11),
+	Active BIT,
+	AddressId UNIQUEIDENTIFIER,
+	CreatedAt DATETIMEOFFSET,
+	UpdatedAt DATETIMEOFFSET,
+	Deleted Bit,
+	CONSTRAINT fk_Client_Address FOREIGN KEY(AddressId)
+		REFERENCES Address(Id)
+);
+
+CREATE TABLE Voucher(
+	Id UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	Code NVARCHAR(5),
+	[Percentage] DECIMAL(10,2),
+	DiscountValue DECIMAL(10,2),
+	Amount INT,
+	DiscountType INT,
+	UsedDate DATETIME,
+	ExpirationDate DATETIME,
+	Active BIT,
+	Used BIT,
+	CreatedAt DATETIMEOFFSET,
+	UpdatedAt DATETIMEOFFSET,
+	Deleted Bit
+);
+
+
+CREATE TABLE [Order](
+	Id UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	ClientId UNIQUEIDENTIFIER NOT NULL,
+	VoucherId UNIQUEIDENTIFIER,
+	VoucherUsed BIT,
+	Discount DECIMAL(10,2),
+	Code NVARCHAR(5),
+	OrderStatus INT,
+	AddressId UNIQUEIDENTIFIER NOT NULL,
+	CreatedAt DATETIMEOFFSET,
+	UpdatedAt DATETIMEOFFSET,
+	Deleted Bit,
+	CONSTRAINT fk_Order_Client FOREIGN KEY(ClientId)
+		REFERENCES Client(Id),
+	CONSTRAINT fk_Order_Voucher FOREIGN KEY(VoucherId)
+		REFERENCES Voucher(Id),
+	CONSTRAINT fk_Order_Address FOREIGN KEY(AddressId)
+		REFERENCES Address(Id)
+);
+
+CREATE TABLE OrderItem(
+	Id UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	OrderId UNIQUEIDENTIFIER NOT NULL,
+	ProductId UNIQUEIDENTIFIER NOT NULL,
+	ProductName NVARCHAR(100),
+	Amount INT,
+	UnitValue DECIMAL(10,2),
+	ProductImage NVARCHAR(100),
+	CreatedAt DATETIMEOFFSET,
+	UpdatedAt DATETIMEOFFSET,
+	Deleted Bit,
+	CONSTRAINT fk_OrderItem_Order FOREIGN KEY(OrderId)
+		REFERENCES [Order](Id),
+	CONSTRAINT fk_OrderItem_Product FOREIGN KEY(ProductId)
+		REFERENCES Product(Id)
+);

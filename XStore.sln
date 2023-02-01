@@ -19,9 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Test", "6 - Test", "{C327FDCE-5604-4E79-9E82-D3EF155434F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XStore.Domain", "src\XStore.Domain\XStore.Domain.csproj", "{C5860753-9AC6-4300-84A5-831969CAAF5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XStore.Domain", "src\XStore.Domain\XStore.Domain.csproj", "{C5860753-9AC6-4300-84A5-831969CAAF5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XStore.Core", "src\XStore.Core\XStore.Core.csproj", "{D390E413-53D2-4C25-93E6-82541B45CCCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XStore.Core", "src\XStore.Core\XStore.Core.csproj", "{D390E413-53D2-4C25-93E6-82541B45CCCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{608817CA-8D22-472C-9005-51D2FE8C2053}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
