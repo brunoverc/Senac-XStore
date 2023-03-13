@@ -33,6 +33,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\XStore.Core\XStore.Core.csproj" />
+    <ProjectReference Include="..\XStore.Domain.Shared\XStore.Domain.Shared.csproj" />
     <ProjectReference Include="..\XStore.Domain\XStore.Domain.csproj" />
   </ItemGroup>
 
