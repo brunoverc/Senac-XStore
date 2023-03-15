@@ -1,13 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using XStore.Domain.Entities;
 using XStore.Domain.Shared.Parameters;
-using XStore.Core.DomainObjects;
 
 namespace XStore.Infra.Data.Mapping
 {
@@ -15,16 +9,15 @@ namespace XStore.Infra.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Client> builder)
         {
-            builder.ToTable(TableNames.TbClient); //Define o nome da tabela
-            //Name => Tamanho máximo de 100, Obrigatório
-            //Email => Tamanho máximo de 100, Obrigatório
-            //Cpf => Tamanho máximo de 14, Obrigatório
-            
-            
-            //Active
-            //AddressId
+            builder.ToTable(TableNames.TbClient);
+            builder.Property(c => c.Name).HasMaxLength(100).IsRequired();
+            builder.Property(c => c.Email).HasMaxLength(100).IsRequired();
+            builder.Property(c => c.Cpf).HasMaxLength(14).IsRequired();
 
-            builder.Ignore(a => a.Deleted);
+            builder.Property(c => c.Active).HasDefaultValue(true);
+            builder.Property(c => c.AddressId).IsRequired();
+
+            builder.Ignore(c => c.Deleted);
         }
     }
 }

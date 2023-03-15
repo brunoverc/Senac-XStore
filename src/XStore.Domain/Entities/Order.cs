@@ -11,7 +11,8 @@ namespace XStore.Domain.Entities
         public bool VoucherUsed { get; private set; }
         public decimal Discount { get; private set; }
         public int Code { get; private set; }
-        
+        public Guid AddressId { get; private set; }
+
         public OrderStatus OrderStatus { get; private set; }
 
         private readonly List<OrderItem> _orderItems;
@@ -62,6 +63,7 @@ namespace XStore.Domain.Entities
         public void SetAddress(Address address)
         {
             Address = address;
+            AddressId = address.Id;
         }
 
         public void CalculateOrderValue()
@@ -94,7 +96,7 @@ namespace XStore.Domain.Entities
                 }
             }
 
-            if(value < 0)
+            if (value < 0)
             {
                 TotalValue = 0;
             }
