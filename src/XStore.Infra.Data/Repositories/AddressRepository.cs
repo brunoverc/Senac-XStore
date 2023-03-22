@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using System.Linq.Expressions;
 using XStore.Domain.Entities;
 using XStore.Domain.Interfaces;
@@ -51,7 +50,7 @@ namespace XStore.Infra.Data.Repositories
             return await context.Where(predicate).ToListAsync();
         }
 
-        public IEnumerable<Address> Search(Expression<Func<Address, bool>> predicate, 
+        public IEnumerable<Address> Search(Expression<Func<Address, bool>> predicate,
             int pageNumber,
             int pageSize)
         {
