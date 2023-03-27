@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using XStore.Domain.Entities;
 using XStore.Domain.Interfaces;
 using XStore.Infra.Data.Context;
@@ -20,15 +15,15 @@ namespace XStore.Infra.Data.Repositories
         public Product GetById(Guid id)
         {
             var context = DbSet.AsQueryable();
-            var Product = context.FirstOrDefault(c => c.Id == id);
-            return Product;
+            var product = context.FirstOrDefault(p => p.Id == id);
+            return product;
         }
 
         public async Task<Product> GetByIdAsync(Guid id)
         {
             var context = DbSet.AsQueryable();
-            var Product = await context.FirstOrDefaultAsync(c => c.Id == id);
-            return Product;
+            var product = await context.FirstOrDefaultAsync(p => p.Id == id);
+            return product;
         }
 
         public IEnumerable<Product> Search(Expression<Func<Product, bool>> predicate)

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XStore.Domain.Shared\XStore.Domain.Shared.csproj" />
+    <ProjectReference Include="..\XStore.Domain\XStore.Domain.csproj" />
+    <ProjectReference Include="..\XStore.Infra.Data\XStore.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
