@@ -3,7 +3,7 @@ using XStore.Domain.Entities;
 
 namespace XStore.Domain.Interfaces
 {
-    public interface IProduct
+    public interface IProductRepository
     {
         Product GetById(Guid id);
         Task<Product> GetByIdAsync(Guid id);
