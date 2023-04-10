@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace XStore.Application.ViewModel
 {
@@ -21,5 +16,7 @@ namespace XStore.Application.ViewModel
         public string City { get; set; }
         [Required(ErrorMessage = "O campo Estado é obrigatório")]
         public string State { get; set; }
+
     }
+
 }

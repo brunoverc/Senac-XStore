@@ -8,10 +8,19 @@
 
   <ItemGroup>
     <Folder Include="AutoMapper\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Model\" />
     <Folder Include="Util\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XStore.Core\XStore.Core.csproj" />
+    <ProjectReference Include="..\XStore.Domain.Shared\XStore.Domain.Shared.csproj" />
+    <ProjectReference Include="..\XStore.Domain\XStore.Domain.csproj" />
   </ItemGroup>
 
 </Project>

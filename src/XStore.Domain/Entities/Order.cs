@@ -10,7 +10,7 @@ namespace XStore.Domain.Entities
         public Guid? VoucherId { get; private set; }
         public bool VoucherUsed { get; private set; }
         public decimal Discount { get; private set; }
-        public int Code { get; private set; }
+        public string Code { get; private set; }
         public Guid AddressId { get; private set; }
 
         public OrderStatus OrderStatus { get; private set; }
