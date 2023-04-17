@@ -29,9 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XStore.Infra.Data", "src\XS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XStore.Domain.Shared", "src\XStore.Domain.Shared\XStore.Domain.Shared.csproj", "{E3287A7C-237D-4D50-96F6-AF4535B0CBDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XStore.Infra.CrossCutting.IoC", "src\XStore.Infra.CrossCutting.IoC\XStore.Infra.CrossCutting.IoC.csproj", "{19AD1635-6A84-4174-BE53-A1CA96AFBB92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XStore.Infra.CrossCutting.IoC", "src\XStore.Infra.CrossCutting.IoC\XStore.Infra.CrossCutting.IoC.csproj", "{19AD1635-6A84-4174-BE53-A1CA96AFBB92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XStore.Application", "src\XStore.Application\XStore.Application.csproj", "{614A7254-4AAF-4D1F-93BD-AE652EE3090B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XStore.Application", "src\XStore.Application\XStore.Application.csproj", "{614A7254-4AAF-4D1F-93BD-AE652EE3090B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XStore.API", "src\XStore.API\XStore.API.csproj", "{35F552B3-FD44-49B3-B751-4807D7D774B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{614A7254-4AAF-4D1F-93BD-AE652EE3090B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{614A7254-4AAF-4D1F-93BD-AE652EE3090B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{614A7254-4AAF-4D1F-93BD-AE652EE3090B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F552B3-FD44-49B3-B751-4807D7D774B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F552B3-FD44-49B3-B751-4807D7D774B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F552B3-FD44-49B3-B751-4807D7D774B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F552B3-FD44-49B3-B751-4807D7D774B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{E3287A7C-237D-4D50-96F6-AF4535B0CBDD} = {27C2906E-8F51-47AB-AD5B-D842A1535252}
 		{19AD1635-6A84-4174-BE53-A1CA96AFBB92} = {41A7B35B-A8A2-4275-9923-A22E32B933A9}
 		{614A7254-4AAF-4D1F-93BD-AE652EE3090B} = {D612D38A-3045-4B04-8030-9B151907F19C}
+		{35F552B3-FD44-49B3-B751-4807D7D774B9} = {59C9938F-71EB-4EF9-A8F2-C925E54CC090}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FFA8C4C3-B273-48B3-824D-EA140AAF6165}

@@ -76,14 +76,18 @@ namespace XStore.Application.Services
             return viewModels;
         }
 
-        public Task<IEnumerable<AddressViewModel>> SearchAsync(Expression<Func<Address, bool>> predicate)
+        public async Task<IEnumerable<AddressViewModel>> SearchAsync(Expression<Func<Address, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var domain = await _repository.SearchAsync(predicate);
+            var viewModels = _mapper.Map<IEnumerable<AddressViewModel>>(domain);
+            return viewModels;
         }
 
         public IEnumerable<AddressViewModel> Search(Expression<Func<Address, bool>> predicate, int pageNumber, int pageSize)
         {
-            throw new NotImplementedException();
+            var domain = _repository.Search(predicate, pageNumber, pageSize);
+            var viewModels = _mapper.Map<IEnumerable<AddressViewModel>>(domain);
+            return viewModels;
         }
     }
 }
