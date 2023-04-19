@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\V1\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\XStore.Application\XStore.Application.csproj" />
     <ProjectReference Include="..\XStore.Core\XStore.Core.csproj" />
     <ProjectReference Include="..\XStore.Domain\XStore.Domain.csproj" />
