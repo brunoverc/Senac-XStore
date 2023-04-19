@@ -43,12 +43,6 @@ namespace XStore.API.Controllers.V1
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(Guid id, [FromBody] AddressViewModel model)
         {
-            var address = await _addressAppService.GetByIdAsync(id);
-            if(address == null)
-            {
-                return NotFound();
-            }
-
             return Ok(_addressAppService.Update(model));
         }
 

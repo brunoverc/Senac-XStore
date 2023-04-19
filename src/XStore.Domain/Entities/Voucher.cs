@@ -14,7 +14,7 @@ namespace XStore.Domain.Entities
         public DateTime? UsedDate { get; private set; }
         public DateTime ExpirationDate { get; private set; }
         public bool Active { get; private set; }
-        public bool Used { get; private set; }
+        public bool? Used { get; private set; }
 
         public bool IsValidToUse()
         {

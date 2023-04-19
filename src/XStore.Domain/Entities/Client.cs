@@ -17,14 +17,14 @@ namespace XStore.Domain.Entities
             bool active)
         {
             Name = name;
-            Email = email;
-            Cpf = cpf;
+            Email = email.Address;//altera aqui
+            Cpf = cpf.Number;//altera aqui
             Active = active;
         }
 
         public string Name { get; private set; }
-        public Email Email { get; private set; }
-        public Cpf Cpf { get; private set; }
+        public string Email { get; private set; }//altera aqui
+        public string Cpf { get; private set; }//altera aqui
         public bool Active { get; private set; }
         public Guid AddressId { get; private set; }
         public Address Address { get; private set; }
@@ -37,7 +37,7 @@ namespace XStore.Domain.Entities
 
         public void ChangeEmail(string email)
         {
-            Email = new Email(email);
+            Email = email;//altera aqui
         }
 
     }
