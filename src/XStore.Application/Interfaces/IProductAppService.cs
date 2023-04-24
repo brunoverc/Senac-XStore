@@ -20,5 +20,19 @@ namespace XStore.Application.Interfaces
         IEnumerable<ProductViewModel> Search(Expression<Func<Product, bool>> predicate,
             int pageNumber,
             int pageSize);
+
+        /// <summary>
+        /// Diminuir estoue
+        /// </summary>
+        /// <param name="productId">Id do produto</param>
+        /// <param name="quantity">Quantidade</param>
+        void DecreaseStock(Guid productId, int quantity);
+
+        /// <summary>
+        /// Checa a quantidade de itens no estoque
+        /// </summary>
+        /// <param name="productId">Id do Produto</param>
+        /// <returns></returns>
+        int CheckQuantityStock(Guid productId);  
     }
 }

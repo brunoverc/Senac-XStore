@@ -96,5 +96,38 @@ namespace XStore.Application.Services
             ProductViewModel viewModelReturn = _mapper.Map<ProductViewModel>(domain);
             return viewModelReturn;
         }
+
+        public void DecreaseStock(Guid productId, int quantity)
+        {
+            //Trouxe meu produto pelo id dele
+            var domain = _repository.GetById(productId);
+
+            var quantityStock = CheckQuantityStock(productId);
+
+            if(!domain.Active)
+            {
+                throw new Exception("Ops! Esse item não está mais ativo.");
+            }
+
+            if(quantity > quantityStock)
+            {
+                throw new Exception("Não temos mais disponível essa quantidade em estoque.");
+            }
+
+            //Vou retirar a quantidade em estoque
+            domain.SetStockQuantity(domain.StockQuantity - quantity);
+            //Atualizo meu produto
+            domain = _repository.Update(domain);
+
+            Commit();
+        }
+
+        public int CheckQuantityStock(Guid productId)
+        {
+            //Busco o meu produto
+            var domain = _repository.GetById(productId);
+            var quantity = domain.StockQuantity;
+            return quantity;
+        }
     }
 }

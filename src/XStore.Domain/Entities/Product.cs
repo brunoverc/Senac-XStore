@@ -29,6 +29,11 @@ namespace XStore.Domain.Entities
         public DateTime DateRegister { get; private set; }
         public string Image { get; private set; }
         public int StockQuantity { get; private set; }
+
+        public void SetStockQuantity(int quantity)
+        {
+            StockQuantity = quantity;
+        }
     }
 
 }

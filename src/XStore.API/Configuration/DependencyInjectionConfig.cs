@@ -43,6 +43,7 @@ namespace XStore.API.Configuration
         public static void AddServices(this IServiceCollection services)
         {
             services.AddScoped<IAddressAppService, AddressAppService>();
+            services.AddScoped<IProductAppService, ProductAppService>();
         }
     }
 }
