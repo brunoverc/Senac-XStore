@@ -10,7 +10,7 @@ namespace XStore.Application.ViewModel
         public Guid ClientId { get;  set; }
         [StringLength(10, MinimumLength = 4, ErrorMessage = "Quantidade de caracteres inválidos")]
         public string? Code { get; set; }
-        public OrderStatus OrderStatus { get; set; }
-        public AddressViewModel Address { get; set; }
+        public OrderStatus? OrderStatus { get; set; }
+        public AddressViewModel? Address { get; set; }
     }
 }

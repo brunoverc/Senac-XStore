@@ -45,6 +45,7 @@ namespace XStore.API.Configuration
             services.AddScoped<IAddressAppService, AddressAppService>();
             services.AddScoped<IProductAppService, ProductAppService>();
             services.AddScoped<IVoucherAppService, VoucherAppService>();
+            services.AddScoped<IOrderAppService, OrderAppService>();
         }
     }
 }

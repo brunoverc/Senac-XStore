@@ -2,10 +2,11 @@
 {
     public enum OrderStatus
     {
-        Autorizado = 1,
-        Pago = 2,
-        Recusado = 3,
-        Entregue = 4,
-        Cancelado = 5
+        Criado = 1,
+        Autorizado = 2,
+        Pago = 3,
+        Recusado = 4,
+        Entregue = 5,
+        Cancelado = 6
     }
 }
