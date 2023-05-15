@@ -4,9 +4,10 @@
     {
         Criado = 1,
         Autorizado = 2,
-        Pago = 3,
-        Recusado = 4,
-        Entregue = 5,
-        Cancelado = 6
+        EmProcessamento = 3,
+        Pago = 4,
+        Recusado = 5,
+        Entregue = 6,
+        Cancelado = 7
     }
 }

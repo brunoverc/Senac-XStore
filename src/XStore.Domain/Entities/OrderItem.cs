@@ -46,6 +46,11 @@ namespace XStore.Domain.Entities
         {
             ProductImage = image;
         }
+
+        public void SetAmount(int amount)
+        {
+            Amount = amount;
+        }
     }
 }
 

@@ -130,6 +130,11 @@ namespace XStore.Domain.Entities
                           .ToArray());
             return result;
         }
+
+        public void SetStatus(OrderStatus status)
+        {
+            OrderStatus = status;
+        }
     }
 
 }
