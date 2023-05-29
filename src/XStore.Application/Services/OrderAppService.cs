@@ -21,6 +21,7 @@ namespace XStore.Application.Services
         protected readonly IAddressRepository _addressRepository;
         protected readonly IClientRepository _clientRepository;
         protected readonly IProductRepository _productRepository;
+        protected readonly IVoucherRepository _voucherRepository;
         protected readonly IMapper _mapper;
 
         public OrderAppService(IMapper mapper,
@@ -30,7 +31,8 @@ namespace XStore.Application.Services
             IOrderItemRepository orderItemRepository,
             IAddressRepository addressRepository,
             IClientRepository clientRepository,
-            IProductRepository productRepository)
+            IProductRepository productRepository,
+            IVoucherRepository voucherRepository)
             : base(unitOfWork, bus)
         {
             _mapper = mapper;
@@ -39,6 +41,7 @@ namespace XStore.Application.Services
             _addressRepository = addressRepository;
             _clientRepository = clientRepository;
             _productRepository = productRepository;
+            _voucherRepository = voucherRepository;
         }
 
         public async Task<IEnumerable<OrderItemViewModel>> DeleteItemInOrder(Guid orderItemId, Guid orderId)
@@ -84,10 +87,48 @@ namespace XStore.Application.Services
             return _mapper.Map<OrderViewModel>(order);
         }
 
-        //TODO
-        public Task<OrderViewModel> SetApplyVoucher(Guid orderId, VoucherViewModel voucherModel)
+        public async Task<OrderViewModel> SetApplyVoucher(Guid orderId, string code)
         {
-            throw new NotImplementedException();
+            //Recebo um código da promoção
+            var vouchers = await _voucherRepository.SearchAsync(v => v.Code == code);
+
+            //Esse código existe?
+            if(!vouchers.Any())
+            {
+                throw new Exception("Não existe um cupom com o código informado");
+            }
+
+            var voucher = vouchers.FirstOrDefault();
+
+            //O voucher está inativo
+            if(!voucher.Active || voucher.ExpirationDate < DateTime.Now)
+            {
+                throw new Exception("A promoção informada não está mais ativa");
+            }
+
+            //O código já foi usado?
+            if(voucher.Used.HasValue && voucher.Used.Value)
+            {
+                throw new Exception("Código de promoção já usado");
+            }
+
+            //1. Atribuindo o voucher a order
+            //2. Calculando os descontos e valor total
+            //3. fazendo um update
+            var order = _orderRepository.GetById(orderId);
+            order.SetVoucher(voucher);
+            _orderRepository.Update(order);
+            Commit();
+
+            //Seto o meu voucher como usado 
+            voucher.DebitAmount();
+
+            //Retorno uma order para quem chamou
+            _voucherRepository.Update(voucher);
+            Commit();
+
+            return _mapper.Map<OrderViewModel>(order);
+
         }
 
         public async Task<OrderViewModel> SetCreateNewOrder(OrderViewModel model)

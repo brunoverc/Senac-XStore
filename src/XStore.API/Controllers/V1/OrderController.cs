@@ -59,5 +59,12 @@ namespace XStore.API.Controllers.V1
             var result = await _orderAppService.UpdateStatusOrder(orderId, newStatus);
             return result;
         }
+
+        [HttpPut("applyVoucher/{orderId}/{code}")]
+        public async Task<OrderViewModel> SetApplyVoucher(Guid orderId, string code)
+        {
+            var result = await _orderAppService.SetApplyVoucher(orderId, code);
+            return result;
+        }
     }
 }

@@ -9,6 +9,7 @@ namespace XStore.Domain.Entities
         public string Code { get; private set; }
         public decimal? Percentage { get; private set; }
         public decimal? DiscountValue { get; private set; }
+        //Quantidade de vouchers
         public int Amount { get; private set; }
         public DiscountTypeVoucher DiscountType { get; private set; }
         public DateTime? UsedDate { get; private set; }

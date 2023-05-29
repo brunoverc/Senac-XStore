@@ -55,9 +55,10 @@ namespace XStore.Domain.Entities
 
         public void SetVoucher(Voucher voucher)
         {
-            VoucherUsed = true;
             VoucherId = voucher.Id;
             Voucher = voucher;
+
+            CalculateValueTotalDiscount();
         }
 
         public void SetAddress(Address address)
@@ -82,8 +83,6 @@ namespace XStore.Domain.Entities
 
         public void CalculateValueTotalDiscount()
         {
-            if (!VoucherUsed) return;
-
             decimal discount = 0;
             var value = TotalValue;
 

@@ -51,7 +51,7 @@ namespace XStore.Application.Interfaces
         /// <param name="orderId">Order Id</param>
         /// <param name="voucherModel">Voucher View Model</param>
         /// <returns>Order View Model</returns>
-        Task<OrderViewModel> SetApplyVoucher(Guid orderId, VoucherViewModel voucherModel);
+        Task<OrderViewModel> SetApplyVoucher(Guid orderId, string code);
         /// <summary>
         /// Traz um resumo da venda
         /// </summary>
